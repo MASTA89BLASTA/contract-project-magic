@@ -1,6 +1,8 @@
 const loginForm = document.querySelector(".form-login");
 console.log(123);
 
+/* Dropdown Menu */
+
 if (loginForm) {
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
