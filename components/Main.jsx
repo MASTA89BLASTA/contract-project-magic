@@ -1,9 +1,11 @@
 const React = require("react");
 const Layout = require("./Layout");
+const Header = require("./Header");
 
 module.exports = function Main() {
   return (
     <Layout>
+      <Header />
       <body className="body-main">
         <form className="form-main">
           <div className="top-dev-main">
