@@ -1,13 +1,14 @@
 const router = require("express").Router();
 
+const { Card } = require("../../db/models");
+
 const registerFormRouter = require("../../components/register/FormRegistration");
 
-router.get("/", (req, res) => {
-  const html = res.renderComponent(registerFormRouter);
+router.get("/", async (req, res) => {
+  const cards = await Card.findAll();
+
+  const html = res.renderComponent(registerFormRouter, { cards });
   res.send(html);
 });
-// подключаем роутеры
-
-// подключаем роутеры
 
 module.exports = router;
