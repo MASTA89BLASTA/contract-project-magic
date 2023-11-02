@@ -16,18 +16,14 @@ module.exports = function Main() {
             <div className="limitirovan-full">
               <div className="block">Лимитораванная карта</div>
               <div className="block">Доминик Торетто</div>
+              <div className="text-box">
+                <a href="#" className="btn btn-white btn-        animate">click me</a>
+              </div>
               <button className="button-limitirovannay" type="submit">Купить сейчас</button>
             </div>
             <div>favorites</div>
           </div>
 
-          <div id="wrapper">
-            <div id="arrow" />
-            <input className="login" name="login" placeholder="Login" type="text" />
-            <input className="email" name="email" placeholder="Email" type="text" />
-            <input className="password" name="password" placeholder="Password" type="password" />
-            <input className="repass" name="repass" placeholder="Repeat password" type="password" />
-          </div>
           {/* <script defer src="./js/scripts.js" /> */}
         </form>
       </body>
