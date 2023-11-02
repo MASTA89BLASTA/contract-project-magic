@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const generateTokens = require('../utils/authUtils');
+const jwt = require("jsonwebtoken");
+const generateTokens = require("../utils/authUtils");
 
 // логика проверки refresh token
 function verifyRefreshToken(req, res, next) {
@@ -19,11 +19,11 @@ function verifyRefreshToken(req, res, next) {
 
     // Возвращаем токены в httpOnly cookie при ответе
     // устанавливаем куки
-    res.cookie('access', accessToken, {
+    res.cookie("access", accessToken, {
       maxAge: 1000 * 60 * 5,
       httpOnly: true,
     });
-    res.cookie('refresh', refreshToken, {
+    res.cookie("refresh", refreshToken, {
       maxAge: 1000 * 60 * 60 * 12,
       httpOnly: true,
     });
@@ -32,7 +32,7 @@ function verifyRefreshToken(req, res, next) {
     next();
   } catch (error) {
     // сюда упали, если refresh кука была, но верификацию не прошла, значит - кука неккоретная
-    res.clearCookie('refresh');
+    res.clearCookie("refresh");
     next();
   }
 }
@@ -50,7 +50,7 @@ function verifyAccessToken(req, res, next) {
     next();
   } catch (error) {
     // если кука не прошла верификацию - ее надо почистить
-    res.clearCookie('access');
+    res.clearCookie("access");
     // возможно, у access token закончился срок, поэтому отправляем проверять refresh token
     verifyRefreshToken(req, res, next);
   }

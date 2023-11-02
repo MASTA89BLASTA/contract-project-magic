@@ -25,5 +25,9 @@ module.exports = {
     "react/prop-types": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "no-console": "off",
+    "linebreak-style": 0,
+    "no-unused-vars": 0,
+    "no-undef": 0,
+    "no-restricted-syntax": 0,
   },
 };

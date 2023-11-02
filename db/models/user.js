@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
+    cash: {
+      defaultValue: 1000,
+      type: DataTypes.TEXT,
+    },
   }, {
     sequelize,
     modelName: "User",

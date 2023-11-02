@@ -24,6 +24,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      cash: {
+        defaultValue: 1000,
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

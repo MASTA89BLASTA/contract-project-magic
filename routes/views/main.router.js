@@ -1,13 +1,12 @@
 const router = require("express").Router();
 
-const mainRouter = require("../../components/Main");
+// const { User } = require("../../db/models");
+// const generateTokens = require("../../utils/authUtils");
+const main = require("../../components/Main");
 
-router.get("/", (req, res) => {
-  const html = res.renderComponent(mainRouter);
+router.get("/", async (req, res) => {
+  const html = res.renderComponent(main);
   res.send(html);
 });
-// подключаем роутеры
-
-// подключаем роутеры
 
 module.exports = router;

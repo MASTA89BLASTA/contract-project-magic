@@ -1,77 +1,111 @@
-const $ = require("jquery");
-
-const formRegister = document.querySelector(".form-main");
-
-/* Dropdown Menu */
-$(".dropdown").click(function () {
-  $(this).attr("tabindex", 1).focus();
-  $(this).toggleClass("active");
-  $(this).find(".dropdown-menu").slideToggle(300);
-});
-$(".dropdown").focusout(function () {
-  $(this).removeClass("active");
-  $(this).find(".dropdown-menu").slideUp(300);
-});
-$(".dropdown .dropdown-menu li").click(function () {
-  $(this).parents(".dropdown").find("span").text($(this).text());
-  $(this).parents(".dropdown").find("input").attr("value", $(this).attr("id"));
-});
-/* End Dropdown Menu */
-
-$(".dropdown-menu li").click(function () {
-  const input = `<strong>${$(this).parents(".dropdown").find("input").val()}</strong>`;
-  const msg = "<span class=\"msg\">Hidden input value: ";
-  $(".msg").html(`${msg + input}</span>`);
-});
+const formRegister = document.querySelector(".form-reg");
 
 if (formRegister) {
   formRegister.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const radioButtons = document.getElementsByName("action");
-    let selectedOption = "";
+    const {
+      login, email, password, repass,
+    } = event.target;
 
-    Array.from(radioButtons).forEach((radioButton) => {
-      if (radioButton.checked) {
-        selectedOption = radioButton.value;
+    const radioButtons = document.getElementsByName("action");
+    let valueRadioButtons = "";
+
+    Array.from(radioButtons).forEach((item) => {
+      if (item.checked) {
+        valueRadioButtons = item.value;
       }
     });
 
-    if (selectedOption === "signin") {
-      console.log(selectedOption);
-    }
-    if (selectedOption === "signup") {
-      console.log(selectedOption);
-    }
-    if (selectedOption === "reset") {
-      console.log(selectedOption);
-    }
+    const radioCity = document.getElementsByName("singleSelect");
+    let city = "";
 
-    const { email, pass, repass } = event.target;
-
-    // event.target = то, что вызвало событие - то есть наша форма
-
-    // 2 шаг отправить запрос на сервер
-    const response = await fetch("/", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email.value,
-        pass: pass.value,
-        repass: repass.value,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    Array.from(radioCity).forEach((item) => {
+      if (item.checked) {
+        city = item.value;
+      }
     });
-    console.log(radioButtons);
 
-    // window.location.assign("/login");
+    if (valueRadioButtons === "signin") {
+      const responseLogin = await fetch("/login", {
+        method: "POST",
+        body: JSON.stringify({
+          login: login.value,
+          email: email.value,
+          password: password.value,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    const data = await response.json();
+      const data = await responseLogin.json();
+      // Переход на главную страницу
+      if (data.success) {
+        window.location.assign("/main");
+      } else {
+        fullErrorAnimation(data);
+      }
+    }
+    if (valueRadioButtons === "signup") {
+      const responseRegister = await fetch("/register", {
+        method: "POST",
+        body: JSON.stringify({
+          login: login.value,
+          email: email.value,
+          password: password.value,
+          repass: repass.value,
+          city,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    // понять, куда вставлять
-    const container = document.querySelector(".js-facts-container");
-    // что вставлять
-    container.insertAdjacentHTML("beforebegin", data.cardHtml);
+      const data = await responseRegister.json();
+      if (data.success) {
+        const container = document.querySelector(".js-facts-container");
+        container.insertAdjacentHTML("beforebegin", data.cardHtml);
+
+        classLogin.value = "";
+        classEmail.value = "";
+        classPassword.value = "";
+        classRepass.value = "";
+      } else {
+        fullErrorAnimation(data);
+      }
+      // понять, куда вставлять
+      // что вставлять
+    }
+
+    function fullErrorAnimation(data) {
+      const classLogin = document.querySelector(".login");
+      classLogin.value = data.login;
+      const classEmail = document.querySelector(".email");
+      classEmail.value = data.email;
+      const classPassword = document.querySelector(".password");
+      classPassword.value = data.password;
+      const classRepass = document.querySelector(".repass");
+      classRepass.value = data.repass;
+
+      classLogin.classList.add("animate");
+      classEmail.classList.add("animate");
+      classPassword.classList.add("animate");
+      classRepass.classList.add("animate");
+
+      setTimeout(() => {
+        classLogin.value = "";
+        classEmail.value = "";
+        classPassword.value = "";
+        classRepass.value = "";
+      }, 2800);
+
+      setTimeout(() => {
+        classLogin.classList.remove("animate");
+        classEmail.classList.remove("animate");
+        classPassword.classList.remove("animate");
+        classRepass.classList.remove("animate");
+      }, 3000);
+    }
   });
 }
