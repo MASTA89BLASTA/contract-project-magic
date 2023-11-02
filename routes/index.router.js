@@ -16,6 +16,6 @@ router.use("/form", registerFormRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
 router.use("/main", mainRouter);
-router.use("./header", headerRouter);
+router.use("/header", headerRouter);
 
 module.exports = router;
