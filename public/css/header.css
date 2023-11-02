@@ -6,6 +6,7 @@
   background-color: #fff;
   display: flex;
   justify-content: space-around;
+  align-self: center;
 }
 .header-basket_li {
   height: 100%;
