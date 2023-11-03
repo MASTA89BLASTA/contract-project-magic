@@ -16,7 +16,7 @@ const app = express();
 
 serverConfig(app);
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 4000;
 
 app.use("/", indexRouter);
 
@@ -24,7 +24,10 @@ app.use("/", indexRouter);
 // на запрос.Это значит, что искомого раздела просто нет на сайте.Для таких ситуаций используется
 // код ошибки 404. Создаём небольшое middleware, которое генерирует соответствующую ошибку.
 app.use((req, res, next) => {
-  const error = createError(404, "Запрашиваемой страницы не существует на сервере.");
+  const error = createError(
+    404,
+    "Запрашиваемой страницы не существует на сервере."
+  );
   next(error);
 });
 
