@@ -8,20 +8,34 @@ module.exports = function Main({ cards }) {
     <Layout>
       <Header />
       <body className="body-main">
-        <div className="js-card-container facts-container">
-          {cards.map(card => (
-            <div className="cards-wrapper">
-              <img
-                className="cards-img"
-                src={card.img}
-                alt={card.name}
-              />
-              <p className="cards-p">
-                {card.name}, {card.price} , {card.level}
-              </p>
-            </div>
-          ))}
-        </div>
+        <form>
+          <div className="js-card-container facts-container">
+            {cards.map((card) => (
+              <div className="cards-wrapper" data-id={card.id}>
+                <img
+                  className="cards-img"
+                  src={card.img}
+                  alt={card.name}
+                />
+                <p className="cards-p">
+                  {card.name}
+                  ,
+                  {" "}
+                  {card.price}
+                  {" "}
+                  ,
+                  {" "}
+                  {card.level}
+                </p>
+                <button className="main-delete btn-delete" type="button">
+                  Удалить
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <script defer src="./js/delete.js" />
+        </form>
       </body>
     </Layout>
   );

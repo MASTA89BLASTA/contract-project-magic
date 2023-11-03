@@ -54,4 +54,24 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:cardId", async (req, res) => {
+  const { cardId } = req.params;
+  console.log(cardId);
+  try {
+    // отправить запрос к бд
+    const cardDeleted = await Card.destroy({
+      where: { id: cardId, user_id: res.locals.user.id }, // проверка на idor
+    });
+    // если было удалено 0 фактов
+    if (!cardDeleted) {
+      return res.status(400).json({ message: "Ошибка в запросе" });
+    }
+
+    // просто вернуть статус в ответе без каких-либо данных
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
