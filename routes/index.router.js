@@ -10,6 +10,8 @@ const mainRouter = require("./views/main.router");
 const headerRouter = require("./views/header.router");
 const cardRouter = require("./views/card.router");
 const BasketCase = require("./views/bascket.router");
+
+const verifyAccess = require("../middlewares/verifyAccess");
 const cardPage = require("./views/onePage.router");
 
 // подключаем роутеры
@@ -18,7 +20,7 @@ router.use("/", oneIndexRouter);
 router.use("/form", registerFormRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
-router.use("/main", mainRouter);
+router.use("/main", verifyAccess, mainRouter);
 router.use("/header", headerRouter);
 router.use("/card", cardRouter);
 router.use("/basket", BasketCase);
