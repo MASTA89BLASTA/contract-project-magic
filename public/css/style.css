@@ -410,3 +410,12 @@ input[type="password"] {
     transform: translateY(0px);
   }
 }
+
+/*Main.jsx*/
+.facts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
