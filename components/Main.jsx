@@ -12,8 +12,8 @@ module.exports = function Main({ cards }) {
           <div className="js-card-container facts-container">
             {cards.map((card) => (
               <div className="cards-wrapper" data-id={card.id}>
-                <h1>
-                  <a href={`/mamkinprogramist/${card.id}`}>{card.name}</a>
+                <h1 className="cards-h1">
+                  <a className="cards-a" href={`/mamkinprogramist/${card.id}`}>{card.name}</a>
                 </h1>
                 <img
                   className="cards-img"

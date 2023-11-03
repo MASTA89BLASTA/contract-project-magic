@@ -5,10 +5,19 @@ function Header() {
     <header className="header">
       <ul className="cards-header_ul">
         <li className="header-li">
-          <a className="header-a" href="/main">Главная</a>
+          <a className="header-a" href="/main">
+            Главная
+          </a>
         </li>
         <li className="header-li">
-          <a className="header-a" href="/card">Создать картинку</a>
+          <a className="header-a" href="/card">
+            Создать картинку
+          </a>
+        </li>
+        <li className="header-li">
+          <a className="header-a" href="/">
+            Выйти
+          </a>
         </li>
         <li className="header-li header-basket_li">
           <a href="/basket">
