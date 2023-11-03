@@ -23,8 +23,14 @@ if (formAddCard) {
 
     const data = await response.json();
     if (data.success) {
-      const container = document.querySelector(".js-facts-container");
-      container.insertAdjacentHTML("beforebegin", data.cardHtml);
+      const className = document.querySelector(".name");
+      className.value = "";
+      const classImg = document.querySelector(".img");
+      classImg.value = "";
+      const classPrice = document.querySelector(".price");
+      classPrice.value = "";
+      const classLevel = document.querySelector(".level");
+      classLevel.value = "";
     } else {
       fullErrorAnimationCard(data);
     }

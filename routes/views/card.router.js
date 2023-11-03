@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   let {
     name, img, price, level,
   } = req.body;
-
+  console.log(1);
   if (name === "" || img === "" || price === "" || level === "") {
     if (!name) name = "Введите имя карточки";
     if (!img) img = "Вставьте картинку";
@@ -24,6 +24,7 @@ router.post("/", async (req, res) => {
       success: false, name, img, price, level,
     });
   }
+  console.log(2);
 
   try {
     // если пользователь с таким img уже есть, возвращаем ошибку
@@ -33,14 +34,20 @@ router.post("/", async (req, res) => {
         success: false, name: "Карточка с таким", img: "именем уже существует", price: "", repass: "",
       });
     }
-    const user = await Card.create({
-      name, img, price, level,
-    });
+    console.log(3);
 
-    res.json({
-      success: true,
-      message: `Пользователь ${user.name} успешно зарегистрирован`,
+    const сart = await Card.create({
+      name,
+      img,
+      price,
+      level,
+      user_id: res.locals.user.id, // привязываю факт к юзеру
     });
+    console.log(4);
+
+    const html = res.renderComponent(CreadCard, { сart }, { doctype: false });
+
+    res.json({ success: true, cardHtml: html });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Ошибка на сервере" });

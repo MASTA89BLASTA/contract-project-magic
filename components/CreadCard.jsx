@@ -11,8 +11,8 @@ module.exports = function CreadCard() {
         <form className="form-add-Card">
           <input className="name" name="name" placeholder="Название картинки:" type="text" />
           <input className="img" name="img" placeholder="Изображение:" type="text" />
-          <input className="price" name="price" placeholder="Стоимость:" type="password" />
-          <input className="level" name="level" placeholder="Изнашиваемость:" type="password" />
+          <input className="price" name="price" placeholder="Стоимость:" type="text" />
+          <input className="level" name="level" placeholder="Изнашиваемость:" type="text" />
 
           <button className="button-create" type="submit">
             Отправить

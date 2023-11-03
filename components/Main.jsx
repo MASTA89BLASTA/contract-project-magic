@@ -3,7 +3,7 @@ const Layout = require("./Layout");
 const Header = require("./Header");
 
 module.exports = function Main({ cards }) {
-  console.log(cards);
+  // console.log(cards);
   return (
     <Layout>
       <Header />
