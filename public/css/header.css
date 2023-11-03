@@ -2,13 +2,14 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 140px;
+  height: 60px;
 }
 .cards-header_ul {
   background-color: #fff;
   display: flex;
   justify-content: space-around;
   align-self: center;
+  height: 100%;
 }
 .header-basket_li {
   height: 100%;
@@ -18,4 +19,17 @@
   line-height: 1.5em;
 }
 .basket-img {
+}
+.header-li {
+  align-self: center;
+}
+
+.header-basket_li {
+  margin-top: 20px;
+}
+
+.header-a {
+  text-decoration: none;
+  font-size: 22px;
+  outline: none !important;
 }

@@ -4,13 +4,13 @@ function Header() {
   return (
     <header className="header">
       <ul className="cards-header_ul">
-        <li>
-          <a href="/main">Главная</a>
+        <li className="header-li">
+          <a className="header-a" href="/main">Главная</a>
         </li>
-        <li>
-          <a href="/card">Создать картинку</a>
+        <li className="header-li">
+          <a className="header-a" href="/card">Создать картинку</a>
         </li>
-        <li className="header-basket_li">
+        <li className="header-li header-basket_li">
           <a href="/basket">
             <img
               className="basket-img"
