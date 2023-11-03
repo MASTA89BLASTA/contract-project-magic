@@ -2,8 +2,6 @@ const list = document.querySelector(".js-card-container");
 console.log(list)
 if (list) {
   list.addEventListener("click", async (e) => {
-    e.preventDefault();
-
     // вешаем слушатель событий на весь контейнер, но внутри проверяем:
     // на чем кликнули? если по кнопке "Удалить" - только тогда делай удаление
     if (e.target.classList.contains("btn-delete")) {
