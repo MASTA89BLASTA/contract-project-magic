@@ -9,6 +9,7 @@ const loginRouter = require("./views/login.router");
 const mainRouter = require("./views/main.router");
 const headerRouter = require("./views/header.router");
 const cardRouter = require("./views/card.router");
+const BasketCase = require("./views/bascket.router");
 
 // подключаем роутеры
 
@@ -19,6 +20,6 @@ router.use("/register", registerRouter);
 router.use("/main", mainRouter);
 router.use("/header", headerRouter);
 router.use("/card", cardRouter);
-
+router.use("/basket", BasketCase);
 
 module.exports = router;
