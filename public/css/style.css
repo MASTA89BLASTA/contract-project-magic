@@ -429,7 +429,8 @@ input[type="password"] {
   margin-top: 100px;
 }
 
-.cards-wrapper {
+.cards-wrapper,
+.js-card {
   background-color: #fff;
   color: #333333;
   width: 300px;
