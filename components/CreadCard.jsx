@@ -6,51 +6,23 @@ module.exports = function CreadCard() {
   return (
     <Layout>
       <Header />
-      <form className="form-add-Card">
-        <div className="mb-3">
-          <label className="form-label">
-            Имя:
-            <input type="text" className="name" name="name" />
-          </label>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">
-            Изображение:
-            <input
-              type="text"
-              className="img"
-              name="img"
-            />
-          </label>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">
-            Стоимость:
-            <input
-              type="text"
-              className="price"
-              name="price"
-            />
-          </label>
-        </div>
-        <div className="mb-3">
-          <label className="form-label">
-            Изнашиваемость:
-            <input
-              type="text"
-              className="level"
-              name="level"
-            />
-          </label>
-        </div>
+      <body className="body-reg">
 
-        <button type="submit" className="btn btn-primary">
-          Отправить
-        </button>
+        <form className="form-add-Card">
+          <input className="name" name="name" placeholder="Название картинки:" type="text" />
+          <input className="img" name="img" placeholder="Изображение:" type="text" />
+          <input className="price" name="price" placeholder="Стоимость:" type="password" />
+          <input className="level" name="level" placeholder="Изнашиваемость:" type="password" />
 
-        <script defer src="./js/scriptsCards.js" />
+          <button className="button-create" type="submit">
+            Отправить
+          </button>
 
-      </form>
+          <script defer src="./js/scriptsCards.js" />
+
+        </form>
+      </body>
+
     </Layout>
   );
 };

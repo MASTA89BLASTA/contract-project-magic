@@ -7,11 +7,14 @@ module.exports = function Main({ cards }) {
   return (
     <Layout>
       <Header />
-      <div className="js-card-container facts-container">
-        {cards.map(card => (
-          <img style={{ width: "200px" }} src={card.img} alt={card.name} />
-        ))}
-      </div>
+      <body className="body-main">
+
+        <div className="js-card-container facts-container">
+          {cards.map((card) => (
+            <img style={{ width: "200px" }} src={card.img} alt={card.name} />
+          ))}
+        </div>
+      </body>
     </Layout>
   );
 };

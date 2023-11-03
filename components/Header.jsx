@@ -8,7 +8,7 @@ function Header() {
           <a href="/main">Главная</a>
         </li>
         <li>
-          <a href="/collection">Моя коллекция</a>
+          <a href="/card">Создать картинку</a>
         </li>
         <li className="header-basket_li">
           <a href="/basket">

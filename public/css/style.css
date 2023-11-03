@@ -106,7 +106,7 @@ button span {
   transform: translate3d(0, 0, 0);
 }
 
-.form-reg {
+.form-reg, .form-add-Card {
   width: 450px;
   height: 370px;
   margin: -185px -225px;
@@ -156,7 +156,7 @@ input[type="password"] {
   text-indent: 20px;
   transition: all 0.2s ease-in-out;
 }
-.button-login {
+.button-login, .button-create {
   background: #079bcf;
   border: none;
   border-radius: 8px;
@@ -170,6 +170,19 @@ input[type="password"] {
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.6, 0, 0.4, 1);
 }
+
+.button-create span {
+  display: block;
+  line-height: 72px;
+  position: relative;
+  top: -2px;
+  transform: translate3d(0, 0, 0);
+}
+
+.button-create:hover {
+  background: #007ba5;
+}
+
 .button-login span {
   display: block;
   line-height: 72px;

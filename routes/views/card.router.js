@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
   } = req.body;
 
   if (name === "" || img === "" || price === "" || level === "") {
-    if (!name) name = "Введите ваш имя карточки";
+    if (!name) name = "Введите имя карточки";
     if (!img) img = "Вставьте картинку";
     if (!price) price = "Введите стоимость";
     if (!level) level = "Укажите уровень износа";
