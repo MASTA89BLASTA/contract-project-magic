@@ -16,7 +16,7 @@ module.exports = function CardPage({ card }) {
         className="btn btn-danger js-btn-remove"
         style={{ marginLeft: "10px" }}
       >
-        Кик его нахрен!!!
+        Кик его !!!
       </button>
     </div>
   );

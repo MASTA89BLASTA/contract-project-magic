@@ -10,6 +10,7 @@ const mainRouter = require("./views/main.router");
 const headerRouter = require("./views/header.router");
 const cardRouter = require("./views/card.router");
 const BasketCase = require("./views/bascket.router");
+const cardPage = require("./views/onePage.router");
 
 // подключаем роутеры
 
@@ -21,5 +22,6 @@ router.use("/main", mainRouter);
 router.use("/header", headerRouter);
 router.use("/card", cardRouter);
 router.use("/basket", BasketCase);
+router.use("/mamkinprogramist", cardPage);
 
 module.exports = router;
